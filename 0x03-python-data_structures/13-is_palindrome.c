@@ -13,7 +13,7 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *temp = *head;
-	int list[1024], index = 0, counter = 0;
+	int list[2000], index = 0, counter = 0;
 
 	if (!(*head))
 		return (1);
