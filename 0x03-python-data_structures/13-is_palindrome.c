@@ -16,7 +16,7 @@ int is_palindrome(listint_t **head)
 	int list[1024], index = 0, counter = 0;
 
 	if (!(*head))
-		return (NULL);
+		return (1);
 
 	while (temp)
 	{
