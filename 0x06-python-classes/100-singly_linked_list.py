@@ -47,6 +47,17 @@ class SinglyLinkedList:
         """Initialize head of list"""
         self.__head = None
 
+    def __str__(self):
+        """Making the class Readable"""
+        newStr = ""
+        ptr = self.__head
+        while ptr is not None:
+            newStr = newStr + str(ptr.data)
+            ptr = ptr.next_node
+            if ptr is not  None:
+                newStr = newStr + "\n"
+        return (newStr)
+
     def sorted_insert(self, value):
         """Insert New Node (sorted)"""
         if type(value) is not int:
