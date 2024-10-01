@@ -28,11 +28,6 @@ class Square:
         """Retrieve size"""
         return (self.__size)
 
-    @property
-    def position(self):
-        """Function to Retrieve Position"""
-        return self.__position
-
     @size.setter
     def size(self, value):
         """Set new size"""
@@ -41,6 +36,11 @@ class Square:
         elif value < 0:
             raise ValueError("size must be >=0")
         self.__size = value
+
+    @property
+    def position(self):
+        """Function to Retrieve Position"""
+        return self.__position
 
     @position.setter
     def position(self, value):
@@ -68,7 +68,11 @@ class Square:
         if self.__size == 0:
             print()
             return
-        for i in range(self.__size):
-            for j in range(self.__size):
+        for i in range(self.position[1]):
+            print("")
+        for j in range(self.size):
+            for k in range(self.position[0]):
+                print(" ", end='')
+            for p in range(self.__size):
                 print("#", end='')
-            print()
+            print("")
