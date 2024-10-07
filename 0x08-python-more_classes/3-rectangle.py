@@ -17,6 +17,18 @@ class Rectangle:
         self.__width = width
         self.__height = height
 
+    def __str__(self):
+        result = ""
+        if self.__width == 0 or self.__height == 0:
+            return ("")
+
+        for i in range(self.__height):
+            for j in range(self.__width):
+                result += "#"
+            if i < self.__height - 1:
+                result += '\n'
+        return (result)
+
     @property
     def width(self):
         """Function to retrieve width"""
