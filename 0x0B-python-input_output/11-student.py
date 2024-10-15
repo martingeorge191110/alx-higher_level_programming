@@ -1,0 +1,27 @@
+#!/usr/bin/python3
+
+"""student class module"""
+
+
+class Student:
+    """Student class"""
+
+    def __init__(self, first_name, last_name, age):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+
+    def to_json(self, attrs=None):
+        if attrs is None:
+            return (self.__dict__)
+        dictObj = {}
+        for i in attrs:
+            try:
+                dictObj[i] = getattr(self, i)
+            except Exception:
+                pass
+        return (dictObj)
+
+    def reload_from_json(self, json):
+        for i in json:
+            setattr(self, i, json[i])
