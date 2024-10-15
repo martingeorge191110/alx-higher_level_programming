@@ -2,6 +2,6 @@
 
 def read_file(filename=""):
     """Function to read file and print"""
-    file = open(filename, encoding="utf-8")
+    with open(filename, encoding="utf-8") as file
     for line in file:
         print(line, end="")
