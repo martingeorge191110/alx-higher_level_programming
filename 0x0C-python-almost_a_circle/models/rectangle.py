@@ -13,11 +13,20 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
+    def __str__(self):
+        """Function that display instance in string format"""
+        id = self.id
+        width = self.width
+        height = self.height
+        x = self.x
+        y = self.y
+        return f"[Rectangle] ({id}) {x}/{y} - {width}/{height}"
+
     @property
     def width(self):
         """get width"""
         return (self.width)
-   
+
     @width.setter
     def width(self, width):
         """set new width"""
@@ -68,3 +77,27 @@ class Rectangle(Base):
         if y < 0:
             raise ValueError("y must be >= 0")
         self.__y = y
+
+    def area(self):
+        """Function to returns the area value"""
+        return (self.width * self.height)
+
+    def display(self):
+        """Function to print in stdout
+        the Rectangle instance with the character # by taking
+        y and also x"""
+        for i in range(self.y):
+            print()
+        for i in range(self.height):
+            print(" " * self.x + "#" * self.width)
+
+    def update(self, *args):
+        """assigns an argument to each attribute"""
+        try:
+            self.id = args[0]
+            self.width = args[1]
+            self.height = args[2]
+            self.x = args[3]
+            self.y = args[4]
+        except Exception:
+            pass
