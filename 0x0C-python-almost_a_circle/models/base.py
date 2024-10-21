@@ -21,7 +21,17 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """returns the JSON string representation of list_dictionaries"""
-        if list_dictionaries is None:
+        if list_dictionaries is None or len(list_dictionaries) == 0:
             return ([])
         else:
             return (json.dump(list_dictionaries))
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """saves list of instance to a file"""
+        jsonList = []
+        if list_objs:
+            for obj in list_objs:
+                jsonList.append(obj.to_dictionary())
+        with open(f"{cls.__name__}.json", "w", encoding="utf-8") as file:
+            file.write(cls.to_json_string(jsonList))
