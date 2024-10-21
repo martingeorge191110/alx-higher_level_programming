@@ -40,7 +40,7 @@ class Rectangle(Base):
     def height(self):
         """get height"""
         return (self.__height)
-    
+
     @height.setter
     def height(self, height):
         """set new height"""
@@ -103,3 +103,15 @@ class Rectangle(Base):
             pass
         for key, value in kwargs.items():
             setattr(self, key, value)
+
+    def to_dictionary(self):
+        """Function that returns
+        the dictionary representation"""
+        resDec = {
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y
+            }
+        return (resDec)
