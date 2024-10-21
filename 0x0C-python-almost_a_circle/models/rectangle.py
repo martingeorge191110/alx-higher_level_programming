@@ -25,16 +25,16 @@ class Rectangle(Base):
     @property
     def width(self):
         """get width"""
-        return (self.width)
+        return (self.__width)
 
     @width.setter
-    def width(self, width):
+    def width(self, value):
         """set new width"""
-        if type(width) is not int:
+        if type(value) is not int:
             raise TypeError("width must be an integer")
-        if width <= 0:
+        if value <= 0:
             raise ValueError("width must be bigger than 0")
-        self.__width = width
+        self.__width = value
 
     @property
     def height(self):
@@ -80,7 +80,7 @@ class Rectangle(Base):
 
     def area(self):
         """Function to returns the area value"""
-        return (self.width * self.height)
+        return (self.__width * self.__height)
 
     def display(self):
         """Function to print in stdout
