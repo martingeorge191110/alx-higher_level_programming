@@ -2,5 +2,4 @@
 SELECT TOP(3) city, temperature
 FROM city_temperatures
 WHERE month IN (7, 8)
-GROUP BY city
 ORDER BY temperature DESC;
