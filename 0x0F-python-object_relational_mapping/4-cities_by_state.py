@@ -16,15 +16,16 @@ if __name__ == "__main__":
 
     cur = db.cursor()
 
-    cur.execute("SELECT c.id, c.name, s.name \
-                FROM cities c, states s \
-                WHERE s.id = c.state_id \
-                ORDER BY c.id ASC")
+    cur.execute("SELECT c.name, s.name \
+        FROM cities c \
+        JOIN states s ON s.id = c.state_id \
+        ORDER BY c.id ASC")
 
     states = cur.fetchall()
 
-    for i in range(len(states)):
-        print(f"{states[i]}")
+    result = cur.fetchall()
+    for i in result:
+        print(i)
 
     cur.close()
     db.close()
