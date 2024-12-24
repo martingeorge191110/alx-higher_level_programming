@@ -17,17 +17,16 @@ if __name__ == "__main__":
 
     cur = db.cursor()
 
-    cur.execute("SELECT c.name FROM cities c, states s \
-                WHERE s.name = %s \
-                AND s.id = c.state_id", (sys.argv[4],))
+    cur.execute("SELECT c.name FROM cities c \
+                JOIN states s ON s.id = c.state_id \
+                WHERE s.name = %s;", (sys.argv[4],))
 
     result = cur.fetchall()
-    for city in result:
-        for city_name in city:
-            if result.index(city) == len(result) - 1:
-                print(city_name, end="")
-            else:
-                print(city_name, end=", ")
+    for i in range(len(result)):
+        if i == len(result) - 1:
+            print(result[i][0])
+        else:
+            print(result[i][0], end=", ")
 
     cur.close()
     db.close()
