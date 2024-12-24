@@ -20,7 +20,9 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    result = session.query(State).filter(State.name.like(sys.argv[4])).first()
+    arg = sys.argv[4]
+
+    result = session.query(State).filter(State.name.like(arg)).first()
 
     if result:
         print(result.id)
