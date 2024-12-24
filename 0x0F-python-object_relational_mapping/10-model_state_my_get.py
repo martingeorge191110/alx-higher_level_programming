@@ -27,4 +27,4 @@ if __name__ == "__main__":
     if result:
         print(result.id)
     else:
-        print("Nothing")
+        print("Not found")
