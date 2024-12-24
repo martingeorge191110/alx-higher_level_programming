@@ -22,11 +22,12 @@ if __name__ == "__main__":
                 AND s.id = c.state_id", (sys.argv[4],))
 
     result = cur.fetchall()
-    for i in range(len(result)):
-        if i == len(result) - 1:
-            print(result[i][0])
-        else:
-            print(result[i][0], end=", ")
+    for city in result:
+        for city_name in city:
+            if result.index(city) == len(result) - 1:
+                print(city_name, end="")
+            else:
+                print(city_name, end=", ")
 
     cur.close()
     db.close()
