@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""script that prints all City objects from the database hbtn_0e_14_usatou"""
-
+"""list all State objects from the database hbtn_0e_6_usa
+"""
 import sys
-from model_city import Base, City
-from model_state import State
+from relationship_state import Base, State
+from relationship_city import City
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import (create_engine)
 
@@ -20,9 +20,8 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    data = session.query(City, State) \
-                  .filter((City.state_id == State.id)) \
-                  .order_by(City.id).all()
-
-    for city, state in data:
-        print(f"{state.name}: ({city.id}) {city.name}")
+    result = session.query(State).order_by(State.id)
+    for i in result:
+        print(f"{i.id}: {i.name}")
+        for city in i.cities:
+            print(f"\t{city.id}: {city.name}")
