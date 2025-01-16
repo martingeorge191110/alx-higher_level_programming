@@ -10,7 +10,7 @@ def find_peak(list_of_integers):
         return (None)
 
     temp = myList[0]
-    for i in range(0, len(myList) - 1):  # Prevent IndexError
+    for i in range(0, len(myList) - 1):
         if myList[i] >= myList[i + 1]:
             temp = myList[i + 1]
             myList[i + 1] = myList[i]
