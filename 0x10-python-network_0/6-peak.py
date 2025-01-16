@@ -17,4 +17,3 @@ def find_peak(list_of_integers):
             myList[i] = temp
 
     return myList[-1]
-
