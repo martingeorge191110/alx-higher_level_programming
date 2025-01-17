@@ -6,9 +6,9 @@ import requests
 import sys
 
 if __name__ == "__main__":
-    url = sys.argv[1]
     try:
-        response = requests.get(url)
+        url = sys.argv[1]
+        response = requests.get(sys.argv[1])
         print(response.headers["X-Request-Id"])
     except Exception:
         pass
