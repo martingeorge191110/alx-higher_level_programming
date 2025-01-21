@@ -13,13 +13,11 @@ if __name__ == "__main__":
         )
 
         response = requests.get(url)
+        commits = response.json()
 
         for i in range(10):
-            commit = response.json()[i]
-
-            print("{}: {}".format(
-                commit.get("sha"),
-                commit.get("commit").get("author").get("name")
-            ))
+            sha = commits[i].get("sha")
+            name = commits[i].get("commit").get("author").get("name")
+            print(f"{sha}: {name}")
     except Exception:
         pass
